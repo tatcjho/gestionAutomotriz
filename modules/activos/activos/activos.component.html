@@ -1,0 +1,102 @@
+<form (ngSubmit)='addActivo(formActivo.value, formActivo)' #formActivo="ngForm" action="" class="form-horizontal pb-3"
+    novalidate action="/" method="get" style="border: rgb(19, 41, 83) 5px solid;">
+    <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
+        <h5 class="modal-title" style="font-family: sans-serif;">Nuevo registro</h5>
+
+    </div>
+    <div class="row m-0">
+        <div class="col m-5">
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <input class="form-control" placeholder="Id Dueño" type="text" class="form-control"
+                        name="activo_dueno_id" id="activo_dueno_id" [(ngModel)]="activo.activo_dueno_id"
+                        #activo_dueno_id="ngModel" pattern="">
+                </div>
+                <br>
+                <div class="col-12 mb-3">
+                    <input class="form-control" placeholder="Marca" type="text" class="form-control" name="activo_marca"
+                        id="activo_marca" [(ngModel)]="activo.activo_marca" #activo_marca="ngModel" pattern="">
+                </div>
+                <div class="col-12 mb-3">
+                    <input class="form-control" placeholder="Modelo" type="text" class="form-control"
+                        name="activo_modelo" id="activo_modelo" [(ngModel)]="activo.activo_modelo"
+                        #activo_modelo="ngModel" pattern="">
+                </div>
+                <br>
+                <div class="col-12 mb-3">
+                    <input class="form-control" placeholder="Año" type="text" class="form-control" name="activo_ano"
+                        id="activo_ano" [(ngModel)]="activo.activo_ano" #activo_ano="ngModel" pattern="">
+                </div>
+                <div class="col-12 mb-3">
+                    <input class="form-control" placeholder="Horómetro" type="text" class="form-control"
+                        name="activo_horometro" id="activo_horometro" [(ngModel)]="activo.activo_horometro"
+                        #activo_horometro="ngModel" pattern="">
+                </div>
+                <br>
+                <div class="col-12 mb-3">
+                    <input class="form-control" placeholder="Tipo de maquina" type="text" class="form-control"
+                        name="activo_tipo_maquina" id="activo_tipo_maquina" [(ngModel)]="activo.activo_tipo_maquina"
+                        #activo_tipo_maquina="ngModel" pattern="">
+                </div>
+                <div class="col-12 mb-3">
+                    <input class="form-control" placeholder="Color" type="text" class="form-control" name="activo_color"
+                        id="activo_color" [(ngModel)]="activo.activo_color" #activo_color="ngModel" pattern="">
+                </div>
+
+
+
+            </div>
+        </div>
+        <div class="col m-5" >
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <input class="form-control" placeholder="Placas" type="text" class="form-control"
+                        name="activo_placas" id="activo_placas" [(ngModel)]="activo.activo_placas"
+                        #activo_placas="ngModel" pattern="">
+                </div>
+                <br>
+                <div class="col-12 mb-3">
+                    <input class="form-control" placeholder="Motor" type="text" class="form-control" name="activo_marca"
+                        id="activo_motor" [(ngModel)]="activo.activo_motor" #activo_motor="ngModel" pattern="">
+                </div>
+                <div class="col-12 mb-3">
+                    <input class="form-control" placeholder="Potencia" type="text" class="form-control"
+                        name="activo_potencia" id="activo_potencia" [(ngModel)]="activo.activo_potencia"
+                        #activo_potencia="ngModel" pattern="">
+                </div>
+                <br>
+                <div class="col-12 mb-3">
+                    <input class="form-control" placeholder="Torque" type="text" class="form-control"
+                        name="activo_torque" id="activo_torque" [(ngModel)]="activo.activo_torque"
+                        #activo_torque="ngModel" pattern="">
+                </div>
+                <div class="col-12 mb-3">
+                    <input class="form-control" placeholder="Combustible" type="text" class="form-control"
+                        name="activo_combustible" id="activo_combustible" [(ngModel)]="activo.activo_combustible"
+                        #activo_combustible="ngModel" pattern="">
+                </div>
+                <br>
+                <div class="col-12 mb-3">
+                    <input class="form-control" placeholder="Transmicion" type="text" class="form-control"
+                        name="activo_transmicion" id="activo_transmicion" [(ngModel)]="activo.activo_transmicion"
+                        #activo_transmicion="ngModel" pattern="">
+                </div>
+                <div class="col-12 mb-3">
+                    <input class="form-control" placeholder="Tipo de direccion" type="text" class="form-control"
+                        name="activo_tipo_direccion" id="activo_tipo_direccion"
+                        [(ngModel)]="activo.activo_tipo_direccion" #activo_tipo_direccion="ngModel" pattern="">
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn waves-effect waves-light orange right">
+            Guardar <i class="material-icons">add_circle</i>
+        </button>
+    </div>
+    
+
+
+</form>

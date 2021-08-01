@@ -1,0 +1,217 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <!-- <div class=" row display-flex-end">
+                    <div class="col-12">
+                        <button type="button" class="btn btn-primary btn-fill btn-new-category btn-sm"
+                            (click)="newNotification()" data-toggle="modal" data-target="#modalNotification">
+                            <i class="fa fa-plus"></i> &nbsp; Crear Notificación
+                        </button>
+                    </div>
+                    <hr>
+                </div> -->
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="container">
+                            <mat-form-field>
+                                <mat-label>Buscar</mat-label>
+                                <input matInput (keyup)="applyFilter($event)" placeholder="Buscar" #input>
+                            </mat-form-field>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="container">
+                            <mat-form-field appearance="legacy">
+                                <mat-label>Filtro rango de fecha</mat-label>
+                                <mat-date-range-input [rangePicker]="picker">
+                                    <input matStartDate [(ngModel)]="start" placeholder="Fecha inicio">
+                                    <input matEndDate [(ngModel)]="end" placeholder="Fecha fin">
+                                </mat-date-range-input>
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-date-range-picker #picker></mat-date-range-picker>
+                                <button type="button" (click)="applyFiltertoRange()" class="btn btn-primary ">BUSCAR</button>
+                            </mat-form-field>
+
+                            <!-- <h2>
+                                {{start | date}} - {{end | date}}
+                            </h2> -->
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 ml-auto mr-auto text-center">
+                        <div class="container">
+                            <mat-table #Table [dataSource]="dataSource">
+                                <ng-container matColumnDef="Id">
+                                    <mat-header-cell *matHeaderCellDef class="display-row-center">#</mat-header-cell>
+                                    <mat-cell *matCellDef="let row" class="display-row-center">
+                                        <span class="text-center">{{row.notifications_id | slice:8}}</span> </mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="Nombre">
+                                    <mat-header-cell *matHeaderCellDef class="display-row-center"> Nombre
+                                    </mat-header-cell>
+                                    <mat-cell *matCellDef="let row" class="display-row-center">
+                                        <span class="text-center"> {{row.request_roadside_assistence_user_name}} </span>
+                                    </mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="Apellido">
+                                    <mat-header-cell *matHeaderCellDef class="display-row-center"> Apellido
+                                    </mat-header-cell>
+                                    <mat-cell *matCellDef="let row" class="display-row-center">
+                                        <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                        <div [innerHTML]="row.request_roadside_assistence_user_lastname| slice:0:8">
+                                        </div>
+
+                                    </mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="Fecha">
+                                    <mat-header-cell *matHeaderCellDef class="display-row-center"> Fecha
+                                    </mat-header-cell>
+                                    <mat-cell *matCellDef="let row" class="display-row-center">
+                                        <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                        <div [innerHTML]="row.request_roadside_assistence_date | slice:0:10"></div>
+
+                                    </mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="Hora">
+                                    <mat-header-cell *matHeaderCellDef class="display-row-center"> Hora
+                                    </mat-header-cell>
+                                    <mat-cell *matCellDef="let row" class="display-row-center">
+                                        <!-- <span class="text-center"> {{row.notifications_description | slice:0:10}} </span> -->
+                                        <div [innerHTML]="row.request_roadside_assistence_time | slice:0:10"></div>
+
+                                    </mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="Telefono">
+                                    <mat-header-cell *matHeaderCellDef class="display-row-center"> Teléfono
+                                    </mat-header-cell>
+                                    <mat-cell *matCellDef="let row" class="display-row-center">
+                                        <!-- <span class="text-center"> {{row.notifications_description | slice:0:10}} </span> -->
+                                        <div [innerHTML]="row.request_roadside_assistence_user_phone"></div>
+
+                                    </mat-cell>
+                                </ng-container>
+                                <ng-container matColumnDef="Tipo de Asistencia">
+                                    <mat-header-cell *matHeaderCellDef class="display-row-center"> Tipo de Asistencia
+                                    </mat-header-cell>
+                                    <mat-cell *matCellDef="let row" class="display-row-center">
+                                        <!-- <span class="text-center"> {{row.notifications_description | slice:0:10}} </span> -->
+                                        <div [innerHTML]="row.request_roadside_assistence_name"></div>
+
+                                    </mat-cell>
+                                </ng-container>
+                                <!-- <ng-container matColumnDef="Estatus">
+                                    <mat-header-cell *matHeaderCellDef class="display-row-center"> Estatus
+                                    </mat-header-cell>
+                                    <mat-cell *matCellDef="let row" class="display-row-center" [ngClass]="{
+                                        'is-warning': !row.request_roadside_assistence_state,
+                                        'is-success': row.request_roadside_assistence_state
+                                      }">
+                                        <span class="text-danger text-status"
+                                            *ngIf="!row.request_roadside_assistence_state">Solicitado</span>
+                                        <span class="text-success text-status"
+                                            *ngIf="row.request_roadside_assistence_state">Aceptado</span>
+
+                                    </mat-cell>
+                                </ng-container> -->
+                                <ng-container matColumnDef="Crear Solicitud">
+                                    <mat-header-cell *matHeaderCellDef mat-sort-header class="text-center"> Crear
+                                    </mat-header-cell>
+                                    <mat-cell *matCellDef="let row" class="text-center">
+                                        <button data-toggle="modal" data-target="#modalViewRequest" type="button"
+                                            class="btn btn-sm  btn-view-detail cursor-pointer"
+                                            (click)="viewRequest(row)">
+                                            <span class="material-icons icon-eye text-info">
+                                                visibility
+                                            </span>
+                                        </button>
+                                    </mat-cell>
+                                </ng-container>
+                                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                <mat-row class="element-row" *matRowDef="let row; columns: displayedColumns;">
+                                </mat-row>
+
+                            </mat-table>
+                            <mat-paginator #TableNotification [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- *** MODAL ORDERS BY ADMIN ***-->
+<div class="modal fade" id="modalViewRequest" tabindex="-1" role="dialog" aria-labelledby="modalOrdersAdminLabel"
+    aria-hidden="true">
+    <div class="modal-dialog m-content-details" role="document">
+        <div class="modal-content ">
+            <div class="modal-body  ">
+                <div class="card p-4">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <span class="text-title-table">Fecha: {{request.request_roadside_assistence_date}}</span>
+
+                        </div>
+                        <div class="col-sm-4 text-right">
+                            <span class="text-title-table"># {{request.request_roadside_assistence_id | slice:8}}</span>
+                        </div>
+                    </div>
+                </div>
+                <table id="cart" class="table table-hover table-condensed table-bordered">
+                    <tbody>
+                        <tr>
+                            <td class=" text-title-table ">
+                                Nombre:
+                                <span class="text-table">{{request.request_roadside_assistence_user_name}}</span>
+                            </td>
+                            <td class="text-title-table">
+                                Apellido:
+                                <span class="text-table">{{request.request_roadside_assistence_user_lastname}}</span>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td class="text-title-table">
+                                Teléfono:
+                                <span class="text-table">{{request.request_roadside_assistence_user_phone}}</span>
+                            </td>
+                            <td class="text-title-table">
+                                Tipo de Asistencia:
+                                <span class="text-table">{{request.request_roadside_assistence_name}}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="row">
+
+                    <div class="col-sm-12">
+                        <p class="text-title-table ml-3">Ubicación:</p>
+                        <div class="map" id="map"></div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 text-right">
+                        <button *ngIf="request.request_roadside_assistence_state === false " type="button"
+                            (click)="acceptRequest(request)" class="btn btn-sm btn-fill btn-warning btn-wd btn-block">
+                            <i class="fa fa-check-circle"></i> &nbsp; Aceptar solicitud
+                        </button>
+                        <button *ngIf="request.request_roadside_assistence_state === true " type="button"
+                            (click)="acceptRequest(request)" class="btn btn-sm btn-fill btn-success btn-wd btn-block"
+                            disabled>
+                            <i class="fa fa-check-circle"></i> &nbsp; La solicitud fue aceptada.
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- *** FIN MODAL ORDERS BY ADMIN-->

@@ -1,0 +1,117 @@
+<div class="row bb mt-5 pt-3">
+  <div class="col-sm-12">
+    <div class="text-center mx-auto">
+      <img class="logo-img" src="../../../assets/img/LOGO VAZ SEGUROS-04.svg" />
+    </div>
+  </div>
+  <div class="col-sm-12">
+    2
+  </div>
+</div>
+<div class="row row-w-100">
+  <div class="col-sm-12 pt-2 pb-1">
+    <div id="pp-button"></div> 
+  </div>
+</div>
+
+<!-- <div class="content-page">
+  <div class="row-w-80 table-responsive">
+    <div class="card p-2">
+      <hr>
+      <table id="" class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th class="text-center">Imágen</th>
+            <th class="text-center">Nombre</th>
+            <th class="text-center">Detalle</th>
+            <th class="text-center">Precio</th>
+            <th class="text-center">Cantidad</th>
+            <th class="text-center">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of arrayProductCart; let i = index">
+            <td style="width: 20%; padding: 10px !important" class="text-center">
+              <img src="{{product.product_img1}}" alt="..." class="img-responsive" />
+            </td>
+            <td class="text-center">{{product.product_name}}</td>
+            <td class="text-center">
+              <div class="row  display-row-center ">
+                <div class="col-sm-6" *ngIf="product.is_product_with_colors || product.is_product_with_sizeAndColors">
+                  <div
+                    [ngStyle]="{'background': product.user_product_color_selected.color_cod, 'width': '20px', 'height': '20px'}"
+                    class="rounded-circle">
+                  </div>
+                </div>
+                <div class="col-sm-6" *ngIf="product.is_product_with_sizes || product.is_product_with_sizeAndColors">
+                  <span class="text-size">{{product.user_product_size_selected.size_name}}</span>
+                </div>
+              </div>
+            </td>
+            <td *ngIf="product.product_state_discount" class="">
+              ${{(product.product_price-((product.product_discount_percentage*product.product_price)/100)).toFixed(2)}}
+            </td>
+            <td *ngIf="!product.product_state_discount" class="">
+              ${{product.product_price}}
+            </td>
+            <td class="text-center">
+              <div class="col-sm-12">
+                {{product.product_quanty_to_buy}}
+              </div>
+            </td>
+            <td *ngIf="product.product_state_discount" class="text-right">
+              ${{((product.product_price-((product.product_discount_percentage*product.product_price)/100))*product.product_quanty_to_buy).toFixed(2)}}
+            </td>
+            <td *ngIf="!product.product_state_discount" class="text-right">
+              ${{(product.product_price*product.product_quanty_to_buy).toFixed(2)}}
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td class="text-center" colspan="4">
+            </td>
+            <td class="text-right">
+              <b>TOTAL</b>
+            </td>
+            <td class="text-right">
+              <div *ngIf="order" class="">
+                <span class="span-price">{{order.total_to_pay | currency}}</span>
+              </div>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+
+
+   -->
+
+  
+
+<!-- 
+  <div class="card">
+    <div class="row row-w-100">
+      <div class="col-sm-8 pt-2 pb-1">
+        <button type="button" class="btn btn-success btn-block" (click)="paymentInit()">
+          Pago con tarjeta
+        </button>
+      </div>
+      <div class="col-sm-4 pt-4 pr-5 text-right">
+        <span class="span-price">{{order.total_to_pay | currency}}</span>
+      </div>
+    </div>
+    <hr>
+    
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <div class="mx-auto">
+          <form #formTest="ngForm" action="/#/payment/" data-brands="VISA MASTER AMEX DINERS DISCOVER"
+            class="form-horizontal paymentWidgets mx-auto" novalidate>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> -->

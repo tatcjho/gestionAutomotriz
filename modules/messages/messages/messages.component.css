@@ -1,0 +1,13 @@
+.background-danger {
+    background-color: rgb(250, 146, 146);
+    color: white;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.btn-view-detail {
+    background-color: transparent;
+    border: none;
+}

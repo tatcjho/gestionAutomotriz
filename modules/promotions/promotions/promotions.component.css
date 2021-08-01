@@ -1,0 +1,43 @@
+.btn-new {
+    min-width: 100%;
+}
+
+table {
+    min-width: 100%;
+}
+
+.icon-img {
+    font-size: 140px;
+    color: gray;
+}
+
+.form-checkbox {
+    width: 20px !important;
+}
+
+.img-promotion-modl {
+    width: 140px;
+    background-repeat: no-repeat;
+}
+
+.mat-sort-header-container { 
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    letter-spacing: normal;
+    outline: 0;
+    justify-content: center !important;
+}
+
+.display-row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
