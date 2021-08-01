@@ -13,11 +13,9 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { DataTablesModule } from 'angular-datatables';
 import { AppComponent } from './app.component';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { LoginComponent } from './login/login/login.component';
+
 import { NgxDatePickerModule } from '@ngx-tiny/date-picker';
 import { DatePipe } from '@angular/common';
-import { TermsConditionsComponent } from './pages/terms-condiditions/terms-conditions/terms-conditions.component';
 
 
 @NgModule({
@@ -39,9 +37,7 @@ import { TermsConditionsComponent } from './pages/terms-condiditions/terms-condi
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
-    LoginComponent,
-    TermsConditionsComponent,
+
     
 
 

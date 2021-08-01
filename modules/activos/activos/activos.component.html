@@ -1,105 +1,126 @@
-<form (ngSubmit)='addActivo(formActivo.value, formActivo)' #formActivo="ngForm" action="" class="form-horizontal pb-3"
-    novalidate action="/" method="get" style="border: rgb(19, 41, 83) 5px solid;">
-    <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
-        <h5 class="modal-title" style="font-family: sans-serif;">Nuevo registro</h5>
-
-    </div>
-    <div class="row m-0">
-        <div class="col m-5">
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body">
             <div class="row">
-                <div class="col-12 mb-3">
-                    <input class="form-control" placeholder="Id Dueño" type="text" class="form-control"
-                        name="activo_dueno_id" id="activo_dueno_id" [(ngModel)]="activo.activo_dueno_id"
-                        #activo_dueno_id="ngModel" pattern="">
-                </div>
-                <br>
-                <div class="col-12 mb-3">
-                    <input class="form-control" placeholder="Marca" type="text" class="form-control" name="activo_marca"
-                        id="activo_marca" [(ngModel)]="activo.activo_marca" #activo_marca="ngModel" pattern="">
-                </div>
-                <div class="col-12 mb-3">
-                    <input class="form-control" placeholder="Modelo" type="text" class="form-control"
-                        name="activo_modelo" id="activo_modelo" [(ngModel)]="activo.activo_modelo"
-                        #activo_modelo="ngModel" pattern="">
-                </div>
-                <br>
-                <div class="col-12 mb-3">
-                    <input class="form-control" placeholder="Año" type="text" class="form-control" name="activo_ano"
-                        id="activo_ano" [(ngModel)]="activo.activo_ano" #activo_ano="ngModel" pattern="">
-                </div>
-                <div class="col-12 mb-3">
-                    <input class="form-control" placeholder="Horómetro" type="text" class="form-control"
-                        name="activo_horometro" id="activo_horometro" [(ngModel)]="activo.activo_horometro"
-                        #activo_horometro="ngModel" pattern="">
-                </div>
-                <br>
-                <div class="col-12 mb-3">
-                    <input class="form-control" placeholder="Tipo de maquina" type="text" class="form-control"
-                        name="activo_tipo_maquina" id="activo_tipo_maquina" [(ngModel)]="activo.activo_tipo_maquina"
-                        #activo_tipo_maquina="ngModel" pattern="">
-                </div>
-                <div class="col-12 mb-3">
-                    <input class="form-control" placeholder="Color" type="text" class="form-control" name="activo_color"
-                        id="activo_color" [(ngModel)]="activo.activo_color" #activo_color="ngModel" pattern="">
-                </div>
+
+                <form (ngSubmit)='addActivo(formActivo.value, formActivo)' #formActivo="ngForm" action=""
+                    class="form-horizontal pb-3" novalidate action="/" method="get"
+                    style="border: rgb(19, 41, 83) 5px solid;">
+                    <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
+                        <h5 class="modal-title" style="font-family: sans-serif;">Nuevo registro</h5>
+
+                    </div>
+                    <div class="row m-0">
+                        <div class="col m-5">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Id Dueño" type="text" class="form-control"
+                                        name="activo_dueno_id" id="activo_dueno_id" [(ngModel)]="activo.activo_dueno_id"
+                                        #activo_dueno_id="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Marca" type="text" class="form-control"
+                                        name="activo_marca" id="activo_marca" [(ngModel)]="activo.activo_marca"
+                                        #activo_marca="ngModel" pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Modelo" type="text" class="form-control"
+                                        name="activo_modelo" id="activo_modelo" [(ngModel)]="activo.activo_modelo"
+                                        #activo_modelo="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Año" type="text" class="form-control"
+                                        name="activo_ano" id="activo_ano" [(ngModel)]="activo.activo_ano"
+                                        #activo_ano="ngModel" pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Horómetro" type="text" class="form-control"
+                                        name="activo_horometro" id="activo_horometro"
+                                        [(ngModel)]="activo.activo_horometro" #activo_horometro="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Tipo de maquina" type="text"
+                                        class="form-control" name="activo_tipo_maquina" id="activo_tipo_maquina"
+                                        [(ngModel)]="activo.activo_tipo_maquina" #activo_tipo_maquina="ngModel"
+                                        pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Color" type="text" class="form-control"
+                                        name="activo_color" id="activo_color" [(ngModel)]="activo.activo_color"
+                                        #activo_color="ngModel" pattern="">
+                                </div>
 
 
 
+                            </div>
+                        </div>
+                        <div class="col m-5">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Placas" type="text" class="form-control"
+                                        name="activo_placas" id="activo_placas" [(ngModel)]="activo.activo_placas"
+                                        #activo_placas="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Motor" type="text" class="form-control"
+                                        name="activo_motor" id="activo_motor" [(ngModel)]="activo.activo_motor"
+                                        #activo_motor="ngModel" pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Potencia" type="text" class="form-control"
+                                        name="activo_potencia" id="activo_potencia" [(ngModel)]="activo.activo_potencia"
+                                        #activo_potencia="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Torque" type="text" class="form-control"
+                                        name="activo_torque" id="activo_torque" [(ngModel)]="activo.activo_torque"
+                                        #activo_torque="ngModel" pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Combustible" type="text"
+                                        class="form-control" name="activo_combustible" id="activo_combustible"
+                                        [(ngModel)]="activo.activo_combustible" #activo_combustible="ngModel"
+                                        pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Transmicion" type="text"
+                                        class="form-control" name="activo_transmicion" id="activo_transmicion"
+                                        [(ngModel)]="activo.activo_transmicion" #activo_transmicion="ngModel"
+                                        pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Tipo de direccion" type="text"
+                                        class="form-control" name="activo_tipo_direccion" id="activo_tipo_direccion"
+                                        [(ngModel)]="activo.activo_tipo_direccion" #activo_tipo_direccion="ngModel"
+                                        pattern="">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn waves-effect waves-light orange right">
+                            Guardar <i class="material-icons">add_circle</i>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="col m-5" >
-            <div class="row">
-                <div class="col-12 mb-3">
-                    <input class="form-control" placeholder="Placas" type="text" class="form-control"
-                        name="activo_placas" id="activo_placas" [(ngModel)]="activo.activo_placas"
-                        #activo_placas="ngModel" pattern="">
-                </div>
-                <br>
-                <div class="col-12 mb-3">
-                    <input class="form-control" placeholder="Motor" type="text" class="form-control" name="activo_motor"
-                        id="activo_motor" [(ngModel)]="activo.activo_motor" #activo_motor="ngModel" pattern="">
-                </div>
-                <div class="col-12 mb-3">
-                    <input class="form-control" placeholder="Potencia" type="text" class="form-control"
-                        name="activo_potencia" id="activo_potencia" [(ngModel)]="activo.activo_potencia"
-                        #activo_potencia="ngModel" pattern="">
-                </div>
-                <br>
-                <div class="col-12 mb-3">
-                    <input class="form-control" placeholder="Torque" type="text" class="form-control"
-                        name="activo_torque" id="activo_torque" [(ngModel)]="activo.activo_torque"
-                        #activo_torque="ngModel" pattern="">
-                </div>
-                <div class="col-12 mb-3">
-                    <input class="form-control" placeholder="Combustible" type="text" class="form-control"
-                        name="activo_combustible" id="activo_combustible" [(ngModel)]="activo.activo_combustible"
-                        #activo_combustible="ngModel" pattern="">
-                </div>
-                <br>
-                <div class="col-12 mb-3">
-                    <input class="form-control" placeholder="Transmicion" type="text" class="form-control"
-                        name="activo_transmicion" id="activo_transmicion" [(ngModel)]="activo.activo_transmicion"
-                        #activo_transmicion="ngModel" pattern="">
-                </div>
-                <div class="col-12 mb-3">
-                    <input class="form-control" placeholder="Tipo de direccion" type="text" class="form-control"
-                        name="activo_tipo_direccion" id="activo_tipo_direccion"
-                        [(ngModel)]="activo.activo_tipo_direccion" #activo_tipo_direccion="ngModel" pattern="">
-                </div>
-            </div>
-        </div>
-
-
     </div>
-    <div class="text-center">
-        <button type="submit" class="btn waves-effect waves-light orange right">
-            Guardar <i class="material-icons">add_circle</i>
-        </button>
-    </div>
-</form>
-
+</div>
 <!---------------------------------------------------------------------------------------->
 <div class="container-fluid">
+    <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
+        <h5 class="modal-title" style="font-family: sans-serif;">Todos los activos</h5>
+
+    </div>
     <div class="card">
         <div class="card-body">
             <div class="row">
@@ -107,9 +128,11 @@
                     <div class="container">
                         <mat-table #Table [dataSource]="dataSource">
                             <ng-container matColumnDef="Id Dueño">
-                                <mat-header-cell *matHeaderCellDef class="display-row-center">#</mat-header-cell>
+                                <mat-header-cell *matHeaderCellDef class="display-row-center">#
+                                </mat-header-cell>
                                 <mat-cell *matCellDef="let row" class="display-row-center">
-                                    <span class="text-center">{{row.activo_dueno_id }}</span> </mat-cell>
+                                    <span class="text-center">{{row.activo_dueno_id }}</span>
+                                </mat-cell>
                             </ng-container>
                             <ng-container matColumnDef="Marca">
                                 <mat-header-cell *matHeaderCellDef class="display-row-center"> Marca
@@ -146,7 +169,8 @@
                                 </mat-cell>
                             </ng-container>
                             <ng-container matColumnDef="Tipo de maquina">
-                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Tipo de maquina
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Tipo de
+                                    maquina
                                 </mat-header-cell>
                                 <mat-cell *matCellDef="let row" class="display-row-center">
                                     <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
@@ -203,7 +227,8 @@
                             </ng-container>
 
                             <ng-container matColumnDef="Combustible">
-                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Combustible
+                                <mat-header-cell *matHeaderCellDef class="display-row-center">
+                                    Combustible
                                 </mat-header-cell>
                                 <mat-cell *matCellDef="let row" class="display-row-center">
                                     <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
@@ -213,7 +238,8 @@
                             </ng-container>
 
                             <ng-container matColumnDef="Transmicion">
-                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Transmicion
+                                <mat-header-cell *matHeaderCellDef class="display-row-center">
+                                    Transmicion
                                 </mat-header-cell>
                                 <mat-cell *matCellDef="let row" class="display-row-center">
                                     <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
@@ -223,7 +249,8 @@
                             </ng-container>
 
                             <ng-container matColumnDef="Tipo de dirección">
-                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Tipo de dirección
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Tipo de
+                                    dirección
                                 </mat-header-cell>
                                 <mat-cell *matCellDef="let row" class="display-row-center">
                                     <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
@@ -239,11 +266,10 @@
                                 <mat-header-cell *matHeaderCellDef class="display-row-center"> Editar
                                 </mat-header-cell>
                                 <mat-cell *matCellDef="let row">
-                                    <span class="material-icons text-warning cursor-pointer"
-                                    (click)="editActivo(row)" data-toggle="modal"
-                                    data-target="#modalProduct">
-                                    mode_edit
-                                </span>
+                                    <span class="material-icons text-warning cursor-pointer" (click)="editActivo(row)"
+                                        data-toggle="modal" data-target="#modalProduct">
+                                        mode_edit
+                                    </span>
                                 </mat-cell>
                             </ng-container>
                             <ng-container matColumnDef="Eliminar">
@@ -252,7 +278,7 @@
                                 <mat-cell *matCellDef="let row">
                                     <span class="material-icons text-danger cursor-pointer" (click)="deleteActivo(row)">
                                         delete_sweep
-                                        </span>
+                                    </span>
                                 </mat-cell>
                             </ng-container>
 
@@ -262,9 +288,129 @@
                             </mat-row>
 
                         </mat-table>
-                        <mat-paginator #TableProduct [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                        <mat-paginator #TableProduct [pageSizeOptions]="[5, 10, 25, 100]">
+                        </mat-paginator>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------------------------------------------------------------------------------->
+<div *ngIf="isEdit" class="container-fluid">
+    
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+
+                <form (ngSubmit)='addActivo(formActivo.value, formActivo)' #formActivo="ngForm" action=""
+                    class="form-horizontal pb-3" novalidate action="/" method="get"
+                    style="border: rgb(19, 41, 83) 5px solid;">
+                    <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
+                        <h5 class="modal-title" style="font-family: sans-serif;">Editando el activo del dueño {{activo.activo_dueno_id}}</h5>
+
+                    </div>
+                    <div class="row m-0">
+                        <div class="col m-5">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Id Dueño" type="text" class="form-control"
+                                        name="activo_dueno_id" id="activo_dueno_id" [(ngModel)]="activo.activo_dueno_id"
+                                        #activo_dueno_id="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Marca" type="text" class="form-control"
+                                        name="activo_marca" id="activo_marca" [(ngModel)]="activo.activo_marca"
+                                        #activo_marca="ngModel" pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Modelo" type="text" class="form-control"
+                                        name="activo_modelo" id="activo_modelo" [(ngModel)]="activo.activo_modelo"
+                                        #activo_modelo="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Año" type="text" class="form-control"
+                                        name="activo_ano" id="activo_ano" [(ngModel)]="activo.activo_ano"
+                                        #activo_ano="ngModel" pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Horómetro" type="text" class="form-control"
+                                        name="activo_horometro" id="activo_horometro"
+                                        [(ngModel)]="activo.activo_horometro" #activo_horometro="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Tipo de maquina" type="text"
+                                        class="form-control" name="activo_tipo_maquina" id="activo_tipo_maquina"
+                                        [(ngModel)]="activo.activo_tipo_maquina" #activo_tipo_maquina="ngModel"
+                                        pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Color" type="text" class="form-control"
+                                        name="activo_color" id="activo_color" [(ngModel)]="activo.activo_color"
+                                        #activo_color="ngModel" pattern="">
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="col m-5">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Placas" type="text" class="form-control"
+                                        name="activo_placas" id="activo_placas" [(ngModel)]="activo.activo_placas"
+                                        #activo_placas="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Motor" type="text" class="form-control"
+                                        name="activo_motor" id="activo_motor" [(ngModel)]="activo.activo_motor"
+                                        #activo_motor="ngModel" pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Potencia" type="text" class="form-control"
+                                        name="activo_potencia" id="activo_potencia" [(ngModel)]="activo.activo_potencia"
+                                        #activo_potencia="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Torque" type="text" class="form-control"
+                                        name="activo_torque" id="activo_torque" [(ngModel)]="activo.activo_torque"
+                                        #activo_torque="ngModel" pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Combustible" type="text"
+                                        class="form-control" name="activo_combustible" id="activo_combustible"
+                                        [(ngModel)]="activo.activo_combustible" #activo_combustible="ngModel"
+                                        pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Transmicion" type="text"
+                                        class="form-control" name="activo_transmicion" id="activo_transmicion"
+                                        [(ngModel)]="activo.activo_transmicion" #activo_transmicion="ngModel"
+                                        pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Tipo de direccion" type="text"
+                                        class="form-control" name="activo_tipo_direccion" id="activo_tipo_direccion"
+                                        [(ngModel)]="activo.activo_tipo_direccion" #activo_tipo_direccion="ngModel"
+                                        pattern="">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn waves-effect waves-light orange right">
+                            Guardar <i class="material-icons">add_circle</i>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

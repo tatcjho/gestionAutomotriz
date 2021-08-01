@@ -52,14 +52,21 @@ export class ActivosComponent implements OnInit {
   }
 
   public addActivo(activo: Activos, isValid: boolean, form: NgForm) {
-    console.log("hasta aqui en el add")
-    this.activoService.saveActivo(activo).then(() => {
-      $("#modalActivo").modal("hide");
-      this.showNotification('top', 'right', 'Ok ! Activo agregado ', 'success')
-      this.isEdit = false;
-      form.resetForm();
-    })
+    //console.log("hasta aqui en el add")
 
+    if (!this.isEdit) {
+      this.activoService.saveActivo(activo).then(() => {
+        $("#modalActivo").modal("hide");
+        this.showNotification('top', 'right', 'Ok ! Activo agregado ', 'success')
+        this.isEdit = false;
+        form.resetForm();
+      })
+    }else {
+      this.activoService.updateActivo(activo).then(()=>{
+        this.showNotification('top', 'right', 'Ok ! Producto editado con exito. ', 'success')
+        this.isEdit = false;
+      })
+    }
   }
 
   public getActivos() {
@@ -74,9 +81,10 @@ export class ActivosComponent implements OnInit {
   public editActivo(activo: Activos) {
     this.isEdit = true;
     this.activo = activo;
+    console.log(activo)
   }
-  
-  public deleteActivo( activo: Activos) {
+
+  public deleteActivo(activo: Activos) {
     Swal.fire({
       text: "¿Desea eliminar el producto?",
       icon: 'warning',
@@ -87,9 +95,9 @@ export class ActivosComponent implements OnInit {
       cancelButtonText: 'Cancelar!'
     }).then((result) => {
       if (result.isConfirmed) {
-       this.activoService.deleteActivo(activo).then(() => {
-         this.showNotification('top', 'right', 'Ok ! Activo eliminado', 'success')
-       })
+        this.activoService.deleteActivo(activo).then(() => {
+          this.showNotification('top', 'right', 'Ok ! Activo eliminado', 'success')
+        })
       }
     })
   }
