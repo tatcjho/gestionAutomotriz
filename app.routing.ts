@@ -25,6 +25,19 @@ const routes: Routes =[
     path: 'activos',
     loadChildren: './modules/activos/activos.module#ActivosModule',
   },
+  {
+    path: 'cmr',
+    loadChildren: './modules/cmr/cmr.module#CMRModule',
+  },
+  {
+    path: 'rm',
+    loadChildren: './modules/rm/rm.module#RmModule',
+  },
+  {
+    path: 'fc',
+    loadChildren: './modules/fc/fc.module#FcModule',
+  },
+
 
   
 
