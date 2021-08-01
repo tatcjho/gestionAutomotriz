@@ -1,1 +1,304 @@
-<p>rrhh works!</p>
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+
+                <form (ngSubmit)='addRRHH(formActivo.value, formActivo)' #formActivo="ngForm" action=""
+                    class="form-horizontal pb-3" novalidate action="/" method="get"
+                    style="border: rgb(19, 41, 83) 5px solid;">
+                    <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
+                        <h5 class="modal-title" style="font-family: sans-serif;">Nuevo registro</h5>
+
+                    </div>
+                    <div class="row m-0">
+                        <div class="col m-5">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Id" type="text" class="form-control"
+                                        name="recursos_uid" id="recursos_uid" [(ngModel)]="rrhh.recursos_uid"
+                                        #recursos_uid="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Nombre" type="text" class="form-control"
+                                        name="recursos_nombre" id="recursos_nombre" [(ngModel)]="rrhh.recursos_nombre"
+                                        #recursos_nombre="ngModel" pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Apellido" type="text" class="form-control"
+                                        name="recursos_apellido" id="recursos_apellido" [(ngModel)]="rrhh.recursos_apellido"
+                                        #recursos_apellido="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Profesion" type="text" class="form-control"
+                                        name="recursos_profesion" id="recursos_profesion" [(ngModel)]="rrhh.recursos_profesion"
+                                        #recursos_profesion="ngModel" pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Edad" type="text" class="form-control"
+                                        name="recursos_edad" id="recursos_edad"
+                                        [(ngModel)]="rrhh.recursos_edad" #recursos_edad="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Telefono" type="text"
+                                        class="form-control" name="recursos_telf" id="recursos_telf"
+                                        [(ngModel)]="rrhh.recursos_telf" #recursos_telf="ngModel"
+                                        pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Email" type="text" class="form-control"
+                                        name="recursos_mail" id="recursos_mail" [(ngModel)]="rrhh.recursos_mail"
+                                        #recursos_mail="ngModel" pattern="">
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="col m-5">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Permiso de conducir" type="text" class="form-control"
+                                        name="recursos_permiso_conducir" id="recursos_permiso_conducir" [(ngModel)]="rrhh.recursos_permiso_conducir"
+                                        #recursos_permiso_conducir="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Curriculum Vitae" type="text" class="form-control"
+                                        name="recursos_curriculum" id="recursos_curriculum" [(ngModel)]="rrhh.recursos_curriculum"
+                                        #recursos_curriculum="ngModel" pattern="">
+                                </div>
+                               
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn waves-effect waves-light orange right">
+                            Guardar <i class="material-icons">add_circle</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------------------------------------------------------------------------------->
+<div class="container-fluid">
+    <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
+        <h5 class="modal-title" style="font-family: sans-serif;">Editando personal id  {{rrhh.recursos_uid}}</h5>
+
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12 ml-auto mr-auto text-center">
+                    <div class="container">
+                        <mat-table #Table [dataSource]="dataSource">
+                            <ng-container matColumnDef="Id">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center">#
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <span class="text-center">{{row.recursos_uid }}</span>
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Nombre">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Marca
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <span class="text-center"> {{row.recursos_nombre}} </span>
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Apellido">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Modelo
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.recursos_apellido | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Profesion">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Año
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.recursos_profesion | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Edad">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Horómetro
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.recursos_edad | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Telefono">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Tipo de
+                                    maquina
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.recursos_telf | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Email">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Color
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.recursos_mail | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Permiso de conducir">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Placas
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.recursos_permiso_conducir | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Curriculum Vitae">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Motor
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.recursos_curriculum | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+
+                            
+                            <ng-container matColumnDef="Editar">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Editar
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row">
+                                    <span class="material-icons text-warning cursor-pointer" (click)="editActivo(row)"
+                                        data-toggle="modal" data-target="#modalProduct">
+                                        mode_edit
+                                    </span>
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Eliminar">
+                                <mat-header-cell *matHeaderCellDef mat-sort-header class="display-row-center">
+                                    Eliminar </mat-header-cell>
+                                <mat-cell *matCellDef="let row">
+                                    <span class="material-icons text-danger cursor-pointer" (click)="deleteActivo(row)">
+                                        delete_sweep
+                                    </span>
+                                </mat-cell>
+                            </ng-container>
+
+
+                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                            <mat-row class="element-row" *matRowDef="let row; columns: displayedColumns;">
+                            </mat-row>
+
+                        </mat-table>
+                        <mat-paginator #TableProduct [pageSizeOptions]="[5, 10, 25, 100]">
+                        </mat-paginator>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------------------------------------------------------------------------------->
+<div *ngIf="isEdit" class="container-fluid">
+    
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+
+                <form (ngSubmit)='addRRHH(formActivo.value, formActivo)' #formActivo="ngForm" action=""
+                    class="form-horizontal pb-3" novalidate action="/" method="get"
+                    style="border: rgb(19, 41, 83) 5px solid;">
+                    <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
+                        <h5 class="modal-title" style="font-family: sans-serif;">Nuevo registro</h5>
+
+                    </div>
+                    <div class="row m-0">
+                        <div class="col m-5">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Id" type="text" class="form-control"
+                                        name="recursos_uid" id="recursos_uid" [(ngModel)]="rrhh.recursos_uid"
+                                        #recursos_uid="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Nombre" type="text" class="form-control"
+                                        name="recursos_nombre" id="recursos_nombre" [(ngModel)]="rrhh.recursos_nombre"
+                                        #recursos_nombre="ngModel" pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Apellido" type="text" class="form-control"
+                                        name="recursos_apellido" id="recursos_apellido" [(ngModel)]="rrhh.recursos_apellido"
+                                        #recursos_apellido="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Profesion" type="text" class="form-control"
+                                        name="recursos_profesion" id="recursos_profesion" [(ngModel)]="rrhh.recursos_profesion"
+                                        #recursos_profesion="ngModel" pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Edad" type="text" class="form-control"
+                                        name="recursos_edad" id="recursos_edad"
+                                        [(ngModel)]="rrhh.recursos_edad" #recursos_edad="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Telefono" type="text"
+                                        class="form-control" name="recursos_telf" id="recursos_telf"
+                                        [(ngModel)]="rrhh.recursos_telf" #recursos_telf="ngModel"
+                                        pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Email" type="text" class="form-control"
+                                        name="recursos_mail" id="recursos_mail" [(ngModel)]="rrhh.recursos_mail"
+                                        #recursos_mail="ngModel" pattern="">
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="col m-5">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Permiso de conducir" type="text" class="form-control"
+                                        name="recursos_permiso_conducir" id="recursos_permiso_conducir" [(ngModel)]="rrhh.recursos_permiso_conducir"
+                                        #recursos_permiso_conducir="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Curriculum Vitae" type="text" class="form-control"
+                                        name="recursos_curriculum" id="recursos_curriculum" [(ngModel)]="rrhh.recursos_curriculum"
+                                        #recursos_curriculum="ngModel" pattern="">
+                                </div>
+                               
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn waves-effect waves-light orange right">
+                            Guardar <i class="material-icons">add_circle</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

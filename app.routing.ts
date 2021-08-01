@@ -18,7 +18,7 @@ const routes: Routes =[
   { path: "principal", component: PrincipalComponent },
   { path: "mantenimiento", component: MantenimientoComponent },
   // { path: "gestion_stock", component: StockComponent },
-  { path: "recursos_humanos", component: RrhhComponent },
+  //{ path: "recursos_humanos", component: RrhhComponent },
   { path: "historial_mantenimiento", component: HistorialComponent },
   { path: "gestion_costos", component: CostosComponent },
   {
@@ -41,7 +41,10 @@ const routes: Routes =[
     path: 'gestion_stock',
     loadChildren: './modules/stock/stock.module#StockModule',
   },
-
+  {
+    path: 'recursos_humanos',
+    loadChildren: './modules/rrhh/rrhh.module#RrhhModule',
+  },
 
 
 
