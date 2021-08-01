@@ -1,1 +1,197 @@
-<p>rm works!</p>
+<div class="container-fluid">
+    <div class="card text-center">
+        <div class="card-body text-center">
+            <div class="row align-items-center text-center">
+
+                <form (ngSubmit)='addReporte(formActivo.value, formActivo)' #formActivo="ngForm" action=""
+                    class="form-horizontal pb-3" novalidate action="/" method="get"
+                    style="border: rgb(19, 41, 83) 5px solid;">
+                    <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
+                        <h5 class="modal-title" style="font-family: sans-serif;">Nuevo registro</h5>
+
+                    </div>
+                    <div class="row m-0 text-center align-items-center">
+
+                        <div class="col-4 mb-3">
+                            <input class="form-control" placeholder="Id" type="text" class="form-control"
+                                name="reporte_servicio" id="reporte_servicio" [(ngModel)]="reporte.reporte_servicio"
+                                #reporte_servicio="ngModel" pattern="">
+                        </div>
+                        <div class="col-4 mb-3">
+                            <input class="form-control" placeholder="Servicio" type="text" class="form-control"
+                                name="reporte_uid" id="reporte_uid" [(ngModel)]="reporte.reporte_uid"
+                                #reporte_uid="ngModel" pattern="">
+                        </div>
+                        <br>
+                        <div class="col-4 mb-3">
+                            <input class="form-control" placeholder="Horometro" type="text" class="form-control"
+                                name="reporte_horometro" id="reporte_horometro" [(ngModel)]="reporte.reporte_horometro"
+                                #reporte_horometro="ngModel" pattern="">
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <input class="form-control" placeholder="Observaciones" type="text" class="form-control"
+                                name="reporte_observaciones" id="reporte_observaciones"
+                                [(ngModel)]="reporte.reporte_observaciones" #reporte_observaciones="ngModel" pattern="">
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <input class="form-control" placeholder="Responsable" type="text" class="form-control"
+                                name="reporte_responsable" id="reporte_responsable"
+                                [(ngModel)]="reporte.reporte_responsable" #reporte_responsable="ngModel" pattern="">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn waves-effect waves-light orange right">
+                            Guardar <i class="material-icons">add_circle</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------------------------------------------------------------------------------->
+<div class="container-fluid">
+    <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
+        <h5 class="modal-title" style="font-family: sans-serif;">Todos los controles de mantenimiento rutinarios</h5>
+
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12 ml-auto mr-auto text-center">
+                    <div class="container">
+                        <mat-table #Table [dataSource]="dataSource">
+                            <ng-container matColumnDef="Id">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center">#
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <span class="text-center">{{row.reporte_uid }}</span>
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Servicio">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Servicio
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <span class="text-center"> {{row.reporte_servicio}} </span>
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Horometro">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Horometro
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.reporte_horometro | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Observaciones">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Observaciones
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.reporte_observaciones | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Responsable">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Responsable
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.reporte_responsable
+                                    | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="Editar">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Editar
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row">
+                                    <span class="material-icons text-warning cursor-pointer" (click)="editActivo(row)"
+                                        data-toggle="modal" data-target="#modalProduct">
+                                        mode_edit
+                                    </span>
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Eliminar">
+                                <mat-header-cell *matHeaderCellDef mat-sort-header class="display-row-center">
+                                    Eliminar </mat-header-cell>
+                                <mat-cell *matCellDef="let row">
+                                    <span class="material-icons text-danger cursor-pointer" (click)="deleteActivo(row)">
+                                        delete_sweep
+                                    </span>
+                                </mat-cell>
+                            </ng-container>
+
+
+                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                            <mat-row class="element-row" *matRowDef="let row; columns: displayedColumns;">
+                            </mat-row>
+
+                        </mat-table>
+                        <mat-paginator #TableProduct [pageSizeOptions]="[5, 10, 25, 100]">
+                        </mat-paginator>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------------------------------------------------------------------------------->
+<div *ngIf="isEdit" class="container-fluid">
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+
+                <form (ngSubmit)='addReporte(formActivo.value, formActivo)' #formActivo="ngForm" action=""
+                    class="form-horizontal pb-3" novalidate action="/" method="get"
+                    style="border: rgb(19, 41, 83) 5px solid;">
+                    <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
+                        <h5 class="modal-title" style="font-family: sans-serif;">Nuevo registro</h5>
+
+                    </div>
+                    <div class="row m-0 text-center align-items-center">
+
+                        <div class="col-4 mb-3">
+                            <input class="form-control" placeholder="Id" type="text" class="form-control"
+                                name="reporte_servicio" id="reporte_servicio" [(ngModel)]="reporte.reporte_servicio"
+                                #reporte_servicio="ngModel" pattern="">
+                        </div>
+                        <div class="col-4 mb-3">
+                            <input class="form-control" placeholder="Servicio" type="text" class="form-control"
+                                name="reporte_uid" id="reporte_uid" [(ngModel)]="reporte.reporte_uid"
+                                #reporte_uid="ngModel" pattern="">
+                        </div>
+                        <br>
+                        <div class="col-4 mb-3">
+                            <input class="form-control" placeholder="Horometro" type="text" class="form-control"
+                                name="reporte_horometro" id="reporte_horometro" [(ngModel)]="reporte.reporte_horometro"
+                                #reporte_horometro="ngModel" pattern="">
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <input class="form-control" placeholder="Observaciones" type="text" class="form-control"
+                                name="reporte_observaciones" id="reporte_observaciones"
+                                [(ngModel)]="reporte.reporte_observaciones" #reporte_observaciones="ngModel" pattern="">
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <input class="form-control" placeholder="Responsable" type="text" class="form-control"
+                                name="reporte_responsable" id="reporte_responsable"
+                                [(ngModel)]="reporte.reporte_responsable" #reporte_responsable="ngModel" pattern="">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn waves-effect waves-light orange right">
+                            Guardar <i class="material-icons">add_circle</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

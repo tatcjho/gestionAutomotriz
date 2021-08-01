@@ -1,1 +1,222 @@
-<p>stock works!</p>
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+
+                <form (ngSubmit)='addStock(formActivo.value, formActivo)' #formActivo="ngForm" action=""
+                    class="form-horizontal pb-3" novalidate action="/" method="get"
+                    style="border: rgb(19, 41, 83) 5px solid;">
+                    <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
+                        <h5 class="modal-title" style="font-family: sans-serif;">Nuevo registro</h5>
+
+                    </div>
+                    <div class="row m-0">
+                        <div class="col m-5">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Id" type="text" class="form-control"
+                                        name="gestion_uid" id="gestion_uid" [(ngModel)]="stock.gestion_uid"
+                                        #gestion_uid="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Nombre" type="text" class="form-control"
+                                        name="gestion_nombre" id="gestion_nombre" [(ngModel)]="stock.gestion_nombre"
+                                        #gestion_nombre="ngModel" pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Cantidad" type="text" class="form-control"
+                                        name="gestion_cantidad" id="gestion_cantidad" [(ngModel)]="stock.gestion_cantidad"
+                                        #gestion_cantidad="ngModel" pattern="">
+                                </div>
+                                <br>
+                                
+
+                            </div>
+                        </div>
+                        <div class="col m-5">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Precio ingreso" type="text" class="form-control"
+                                        name="gestion_precio_ingreso" id="gestion_precio_ingreso" [(ngModel)]="stock.gestion_precio_ingreso"
+                                        #gestion_precio_ingreso="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Precio Venta" type="text" class="form-control"
+                                        name="gestion_precio_venta" id="gestion_precio_venta" [(ngModel)]="stock.gestion_precio_venta"
+                                        #gestion_precio_venta="ngModel" pattern="">
+                                </div>
+                                
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn waves-effect waves-light orange right">
+                            Guardar <i class="material-icons">add_circle</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------------------------------------------------------------------------------->
+<div class="container-fluid">
+    <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
+        <h5 class="modal-title" style="font-family: sans-serif;">Todos los controles de mantenimiento rutinarios</h5>
+
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12 ml-auto mr-auto text-center">
+                    <div class="container">
+                        <mat-table #Table [dataSource]="dataSource">
+                            <ng-container matColumnDef="Id">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center">#
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <span class="text-center">{{row.gestion_uid }}</span>
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Nombre">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Descripcion
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <span class="text-center"> {{row.gestion_nombre}} </span>
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Cantidad">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Bueno
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.gestion_cantidad | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Precio ingreso">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Ajustado
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.gestion_precio_ingreso | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Precio Venta">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Reparacion
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.gestion_precio_venta
+                                    | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            
+                            <ng-container matColumnDef="Editar">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Editar
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row">
+                                    <span class="material-icons text-warning cursor-pointer" (click)="editActivo(row)"
+                                        data-toggle="modal" data-target="#modalProduct">
+                                        mode_edit
+                                    </span>
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Eliminar">
+                                <mat-header-cell *matHeaderCellDef mat-sort-header class="display-row-center">
+                                    Eliminar </mat-header-cell>
+                                <mat-cell *matCellDef="let row">
+                                    <span class="material-icons text-danger cursor-pointer" (click)="deleteActivo(row)">
+                                        delete_sweep
+                                    </span>
+                                </mat-cell>
+                            </ng-container>
+
+
+                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                            <mat-row class="element-row" *matRowDef="let row; columns: displayedColumns;">
+                            </mat-row>
+
+                        </mat-table>
+                        <mat-paginator #TableProduct [pageSizeOptions]="[5, 10, 25, 100]">
+                        </mat-paginator>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------------------------------------------------------------------------------->
+<div *ngIf="isEdit" class="container-fluid">
+    
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+
+                <form (ngSubmit)='addStock(formActivo.value, formActivo)' #formActivo="ngForm" action=""
+                class="form-horizontal pb-3" novalidate action="/" method="get"
+                style="border: rgb(19, 41, 83) 5px solid;">
+                <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
+                    <h5 class="modal-title" style="font-family: sans-serif;">Editando stock numero: {{stock.gestion_uid}}</h5>
+
+                </div>
+                <div class="row m-0">
+                    <div class="col m-5">
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <input class="form-control" placeholder="Id" type="text" class="form-control"
+                                    name="gestion_uid" id="gestion_uid" [(ngModel)]="stock.gestion_uid"
+                                    #gestion_uid="ngModel" pattern="">
+                            </div>
+                            <br>
+                            <div class="col-12 mb-3">
+                                <input class="form-control" placeholder="Nombre" type="text" class="form-control"
+                                    name="gestion_nombre" id="gestion_nombre" [(ngModel)]="stock.gestion_nombre"
+                                    #gestion_nombre="ngModel" pattern="">
+                            </div>
+                            <div class="col-12 mb-3">
+                                <input class="form-control" placeholder="Cantidad" type="text" class="form-control"
+                                    name="gestion_cantidad" id="gestion_cantidad" [(ngModel)]="stock.gestion_cantidad"
+                                    #gestion_cantidad="ngModel" pattern="">
+                            </div>
+                            <br>
+                            
+
+                        </div>
+                    </div>
+                    <div class="col m-5">
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <input class="form-control" placeholder="Precio ingreso" type="text" class="form-control"
+                                    name="gestion_precio_ingreso" id="gestion_precio_ingreso" [(ngModel)]="stock.gestion_precio_ingreso"
+                                    #gestion_precio_ingreso="ngModel" pattern="">
+                            </div>
+                            <br>
+                            <div class="col-12 mb-3">
+                                <input class="form-control" placeholder="Precio Venta" type="text" class="form-control"
+                                    name="gestion_precio_venta" id="gestion_precio_venta" [(ngModel)]="stock.gestion_precio_venta"
+                                    #gestion_precio_venta="ngModel" pattern="">
+                            </div>
+                            
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn waves-effect waves-light orange right">
+                        Guardar <i class="material-icons">add_circle</i>
+                    </button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>

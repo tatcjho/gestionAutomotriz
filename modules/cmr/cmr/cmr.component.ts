@@ -78,7 +78,7 @@ export class CmrComponent implements OnInit {
 
   public deleteActivo(control: ControlMantenimiento) {
     Swal.fire({
-      text: "¿Desea eliminar este mantenimiento?",
+      text: "¿Desea eliminar el producto?",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
