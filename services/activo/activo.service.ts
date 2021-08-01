@@ -18,7 +18,7 @@ export class ActivoService {
   }
 
   public getActivos() {
-    return this.db.collection('activos', ref => ref.orderBy('activo_dueño_id', 'asc')).valueChanges()
+    return this.db.collection('activos', ref => ref.orderBy('activo_dueno_id', 'asc')).valueChanges()
   }
 
   public getActivoId(activo_dueño_id: string) {
@@ -33,6 +33,6 @@ export class ActivoService {
   }
 
   public deleteActivo(activo: Activos) {
-    return this.db.collection('products').doc(`${activo.activo_dueno_id}`).delete()
+    return this.db.collection('activos').doc(`${activo.activo_dueno_id}`).delete()
   }
 }

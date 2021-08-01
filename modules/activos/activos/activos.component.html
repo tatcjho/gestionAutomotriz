@@ -56,7 +56,7 @@
                 </div>
                 <br>
                 <div class="col-12 mb-3">
-                    <input class="form-control" placeholder="Motor" type="text" class="form-control" name="activo_marca"
+                    <input class="form-control" placeholder="Motor" type="text" class="form-control" name="activo_motor"
                         id="activo_motor" [(ngModel)]="activo.activo_motor" #activo_motor="ngModel" pattern="">
                 </div>
                 <div class="col-12 mb-3">
@@ -96,7 +96,176 @@
             Guardar <i class="material-icons">add_circle</i>
         </button>
     </div>
-    
-
-
 </form>
+
+<!---------------------------------------------------------------------------------------->
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12 ml-auto mr-auto text-center">
+                    <div class="container">
+                        <mat-table #Table [dataSource]="dataSource">
+                            <ng-container matColumnDef="Id Dueño">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center">#</mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <span class="text-center">{{row.activo_dueno_id }}</span> </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Marca">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Marca
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <span class="text-center"> {{row.activo_marca}} </span>
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Modelo">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Modelo
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.activo_modelo | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Año">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Año
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.activo_ano | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Horómetro">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Horómetro
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.activo_horometro | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Tipo de maquina">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Tipo de maquina
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.activo_tipo_maquina | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Color">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Color
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.activo_color | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Placas">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Placas
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.activo_placas | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Motor">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Motor
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.activo_motor | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="Potencia">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Potencia
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.activo_potencia | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="Torque">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Torque
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.activo_torque | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="Combustible">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Combustible
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.activo_combustible | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="Transmicion">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Transmicion
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.activo_transmicion | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="Tipo de dirección">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Tipo de dirección
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.activo_tipo_direccion | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+
+
+
+
+                            <ng-container matColumnDef="Editar">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Editar
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row">
+                                    <span class="material-icons text-warning cursor-pointer"
+                                    (click)="editActivo(row)" data-toggle="modal"
+                                    data-target="#modalProduct">
+                                    mode_edit
+                                </span>
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Eliminar">
+                                <mat-header-cell *matHeaderCellDef mat-sort-header class="display-row-center">
+                                    Eliminar </mat-header-cell>
+                                <mat-cell *matCellDef="let row">
+                                    <span class="material-icons text-danger cursor-pointer" (click)="deleteActivo(row)">
+                                        delete_sweep
+                                        </span>
+                                </mat-cell>
+                            </ng-container>
+
+
+                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                            <mat-row class="element-row" *matRowDef="let row; columns: displayedColumns;">
+                            </mat-row>
+
+                        </mat-table>
+                        <mat-paginator #TableProduct [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

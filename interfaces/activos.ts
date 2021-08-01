@@ -2,8 +2,8 @@
 export interface Activos {
     activo_dueno_id?: string;
     activo_marca?: string;
-    activo_modelo?: any;
-    activo_ano?: boolean;
+    activo_modelo?: string;
+    activo_ano?: string;
     activo_horometro?: string;
     activo_tipo_maquina?:string;
     activo_color?: string;
