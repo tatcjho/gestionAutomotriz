@@ -1,0 +1,199 @@
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+
+                <form (ngSubmit)='addMano(formActivo.value, formActivo)' #formActivo="ngForm" action=""
+                    class="form-horizontal pb-3" novalidate action="/" method="get"
+                    style="border: rgb(19, 41, 83) 5px solid;">
+                    <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
+                        <h5 class="modal-title" style="font-family: sans-serif;">Nuevo registro</h5>
+
+                    </div>
+                    <div class="row m-0">
+                        <div class="col m-5">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Id" type="text" class="form-control"
+                                        name="mano_uid" id="mano_uid" [(ngModel)]="mano.mano_uid"
+                                        #mano_uid="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Profesion" type="text" class="form-control"
+                                        name="mano_profesion" id="mano_profesion" [(ngModel)]="mano.mano_profesion"
+                                        #mano_profesion="ngModel" pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Precio por hora" type="text" class="form-control"
+                                        name="mano_precioXhora" id="mano_precioXhora" [(ngModel)]="mano.mano_precioXhora"
+                                        #mano_precioXhora="ngModel" pattern="">
+                                </div>
+                                <br>
+                                
+
+                            </div>
+                        </div>
+                        <div class="col m-5">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Sueldo anual" type="text" class="form-control"
+                                        name="mano_sueldo_anual" id="mano_sueldo_anual" [(ngModel)]="mano.mano_sueldo_anual"
+                                        #mano_sueldo_anual="ngModel" pattern="">
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn waves-effect waves-light orange right">
+                            Guardar <i class="material-icons">add_circle</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------------------------------------------------------------------------------->
+<div class="container-fluid">
+    <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
+        <h5 class="modal-title" style="font-family: sans-serif;">Todos los controles de mantenimiento rutinarios</h5>
+
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12 ml-auto mr-auto text-center">
+                    <div class="container">
+                        <mat-table #Table [dataSource]="dataSource">
+                            <ng-container matColumnDef="Id">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center">#
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <span class="text-center">{{row.mano_uid }}</span>
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Profesion">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Procedimiento
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <span class="text-center"> {{row.mano_profesion}} </span>
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Precio por hora">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Ok
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.mano_precioXhora | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Sueldo anual">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Mantenimiento
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.mano_sueldo_anual | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            
+                            <ng-container matColumnDef="Editar">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Editar
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row">
+                                    <span class="material-icons text-warning cursor-pointer" (click)="editActivo(row)"
+                                        data-toggle="modal" data-target="#modalProduct">
+                                        mode_edit
+                                    </span>
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Eliminar">
+                                <mat-header-cell *matHeaderCellDef mat-sort-header class="display-row-center">
+                                    Eliminar </mat-header-cell>
+                                <mat-cell *matCellDef="let row">
+                                    <span class="material-icons text-danger cursor-pointer" (click)="deleteActivo(row)">
+                                        delete_sweep
+                                    </span>
+                                </mat-cell>
+                            </ng-container>
+
+
+                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                            <mat-row class="element-row" *matRowDef="let row; columns: displayedColumns;">
+                            </mat-row>
+
+                        </mat-table>
+                        <mat-paginator #TableProduct [pageSizeOptions]="[5, 10, 25, 100]">
+                        </mat-paginator>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------------------------------------------------------------------------------->
+<div *ngIf="isEdit" class="container-fluid">
+    
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+
+                <form (ngSubmit)='addMano(formActivo.value, formActivo)' #formActivo="ngForm" action=""
+                    class="form-horizontal pb-3" novalidate action="/" method="get"
+                    style="border: rgb(19, 41, 83) 5px solid;">
+                    <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
+                        <h5 class="modal-title" style="font-family: sans-serif;">Nuevo registro</h5>
+
+                    </div>
+                    <div class="row m-0">
+                        <div class="col m-5">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Id" type="text" class="form-control"
+                                        name="mano_uid" id="mano_uid" [(ngModel)]="mano.mano_uid"
+                                        #mano_uid="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Profesion" type="text" class="form-control"
+                                        name="mano_profesion" id="mano_profesion" [(ngModel)]="mano.mano_profesion"
+                                        #mano_profesion="ngModel" pattern="">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Precio por hora" type="text" class="form-control"
+                                        name="mano_precioXhora" id="mano_precioXhora" [(ngModel)]="mano.mano_precioXhora"
+                                        #mano_precioXhora="ngModel" pattern="">
+                                </div>
+                                <br>
+                                
+
+                            </div>
+                        </div>
+                        <div class="col m-5">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Sueldo anual" type="text" class="form-control"
+                                        name="mano_sueldo_anual" id="mano_sueldo_anual" [(ngModel)]="mano.mano_sueldo_anual"
+                                        #mano_sueldo_anual="ngModel" pattern="">
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn waves-effect waves-light orange right">
+                            Guardar <i class="material-icons">add_circle</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

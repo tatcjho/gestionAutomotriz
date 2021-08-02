@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HistorialComponent } from './historial/historial.component';
+import { ManoComponent } from './mano/mano.component';
 import { RouterModule, Routes } from "@angular/router";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatTableModule } from "@angular/material/table";
@@ -8,12 +8,12 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AngularEditorModule } from '@kolkov/angular-editor';
-const routes: Routes = [{ path: "", component: HistorialComponent }];
+const routes: Routes = [{ path: "", component: ManoComponent }];
 
 
 
 @NgModule({
-  declarations: [HistorialComponent],
+  declarations: [ManoComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -26,4 +26,4 @@ const routes: Routes = [{ path: "", component: HistorialComponent }];
     AngularEditorModule
   ]
 })
-export class HistorialModule { }
+export class ManoModule { }

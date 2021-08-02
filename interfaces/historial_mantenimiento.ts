@@ -1,7 +1,6 @@
 
 export interface HistorialMantenimiento {
-    hist_uid?: string;
-    hist_dueño_uid?: string;
+    hist_dueno_uid?: string;
     hist_fecha?: string;
     hist_num_orden?: string;
     hist_horometro?: string;

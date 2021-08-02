@@ -19,7 +19,7 @@ const routes: Routes =[
   { path: "mantenimiento", component: MantenimientoComponent },
   // { path: "gestion_stock", component: StockComponent },
   //{ path: "recursos_humanos", component: RrhhComponent },
-  { path: "historial_mantenimiento", component: HistorialComponent },
+  //{ path: "historial_mantenimiento", component: HistorialComponent },
   { path: "gestion_costos", component: CostosComponent },
   {
     path: 'activos',
@@ -44,6 +44,23 @@ const routes: Routes =[
   {
     path: 'recursos_humanos',
     loadChildren: './modules/rrhh/rrhh.module#RrhhModule',
+  },
+
+  {
+    path: 'gestion_stock',
+    loadChildren: './modules/stock/stock.module#StockModule',
+  },
+  {
+    path: 'costos_mantenimiento',
+    loadChildren: './modules/costos-mantenimiento/costos-mantenimiento.module#CostosMantenimientoModule',
+  },
+  {
+    path: 'mano_obra',
+    loadChildren: './modules/mano/mano.module#ManoModule',
+  },
+  {
+    path: 'historial_mantenimiento',
+    loadChildren: './modules/historial/historial.module#HistorialModule',
   },
 
 
