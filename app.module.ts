@@ -13,7 +13,6 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { DataTablesModule } from 'angular-datatables';
 import { AppComponent } from './app.component';
-
 import { NgxDatePickerModule } from '@ngx-tiny/date-picker';
 import { DatePipe } from '@angular/common';
 
@@ -32,7 +31,8 @@ import { DatePipe } from '@angular/common';
     AngularFireAuthModule,
     AngularFirestoreModule,
     DataTablesModule,
-    NgxDatePickerModule
+    NgxDatePickerModule,
+
     
   ],
   declarations: [

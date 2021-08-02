@@ -8,6 +8,9 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { MatTableExporterModule } from 'mat-table-exporter';
+
+
 const routes: Routes = [{ path: "", component: CmrComponent }];
 
 
@@ -23,7 +26,9 @@ const routes: Routes = [{ path: "", component: CmrComponent }];
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-    AngularEditorModule
+    AngularEditorModule,
+    MatTableExporterModule,
+
   ]
 })
 export class CMRModule { }
