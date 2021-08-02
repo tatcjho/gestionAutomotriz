@@ -1,1 +1,216 @@
-<p>costos-mantenimiento works!</p>
+<div class="container-fluid">
+    <div class="card">
+        <span class="subtitle text-center">Gestión costos de mantenimiento<i class="fa fa-angle-double-down"></i></span>
+
+        <div class="card-body">
+            <div class="row">
+
+                <form (ngSubmit)='addCostos(formActivo.value, formActivo)' #formActivo="ngForm" action=""
+                    class="form-horizontal pb-3" novalidate action="/" method="get"
+                    style="border: rgb(19, 41, 83) 5px solid;">
+                    <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
+                        <h5 class="modal-title" style="font-family: sans-serif;">Nuevo registro</h5>
+
+                    </div>
+                    <div class="row m-0">
+                        <div class="col m-5">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Id" type="text" class="form-control"
+                                        name="costos_uid" id="costos_uid" [(ngModel)]="costo.costos_uid"
+                                        #costos_uid="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Items" type="text" class="form-control"
+                                        name="costos_items" id="costos_items" [(ngModel)]="costo.costos_items"
+                                        #costos_items="ngModel" pattern="">
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <div class="col m-5">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Cantidad" type="text" class="form-control"
+                                        name="costos_cantidad" id="costos_cantidad"
+                                        [(ngModel)]="costo.costos_cantidad" #costos_cantidad="ngModel" pattern="">
+                                </div>
+                                <br>
+                                <div class="col-12 mb-3">
+                                    <input class="form-control" placeholder="Precio unitario" type="text"
+                                        class="form-control" name="costos_precio_unitario" id="costos_precio_unitario"
+                                        [(ngModel)]="costo.costos_precio_unitario" #costos_precio_unitario="ngModel"
+                                        pattern="">
+                                </div>
+                                <br>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn waves-effect waves-light orange right">
+                            Guardar <i class="material-icons">add_circle</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------------------------------------------------------------------------------->
+<div class="container-fluid">
+    <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
+        <h5 class="modal-title" style="font-family: sans-serif;">Todos los costos de mantenimiento</h5>
+
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12 ml-auto mr-auto text-center">
+                    <div class="container">
+                        <mat-table #Table [dataSource]="dataSource">
+                            <ng-container matColumnDef="Id">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center">#
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <span class="text-center">{{row.costos_uid }}</span>
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Items">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Items
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <span class="text-center"> {{row.costos_items}} </span>
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Cantidad">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Cantidad
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.costos_cantidad | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Precio unitario">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Precio unitario
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div [innerHTML]="row.costos_precio_unitario | slice:0:10"></div>
+
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Precio total">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Precio total
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row" class="display-row-center">
+                                    <!-- <span class="text-center"> {{row.product_description | slice:0:10}} </span> -->
+                                    <div>{{row.costos_precio_total}}</div>
+
+                                </mat-cell>
+                            </ng-container>
+
+                            <ng-container matColumnDef="Editar">
+                                <mat-header-cell *matHeaderCellDef class="display-row-center"> Editar
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let row">
+                                    <span class="material-icons text-warning cursor-pointer" (click)="editActivo(row)"
+                                        data-toggle="modal" data-target="#modalProduct">
+                                        mode_edit
+                                    </span>
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Eliminar">
+                                <mat-header-cell *matHeaderCellDef mat-sort-header class="display-row-center">
+                                    Eliminar </mat-header-cell>
+                                <mat-cell *matCellDef="let row">
+                                    <span class="material-icons text-danger cursor-pointer" (click)="deleteActivo(row)">
+                                        delete_sweep
+                                    </span>
+                                </mat-cell>
+                            </ng-container>
+
+
+                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                            <mat-row class="element-row" *matRowDef="let row; columns: displayedColumns;">
+                            </mat-row>
+
+                        </mat-table>
+                        <mat-paginator #TableProduct [pageSizeOptions]="[5, 10, 25, 100]">
+                        </mat-paginator>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------------------------------------------------------------------------------->
+<div *ngIf="isEdit" class="container-fluid">
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+
+                <form (ngSubmit)='addCostos(formActivo.value, formActivo)' #formActivo="ngForm" action=""
+                class="form-horizontal pb-3" novalidate action="/" method="get"
+                style="border: rgb(19, 41, 83) 5px solid;">
+                <div class="modal-header" style="background-color: rgb(19, 41, 83); color: white;">
+                    <h5 class="modal-title" style="font-family: sans-serif;">Nuevo registro</h5>
+
+                </div>
+                <div class="row m-0">
+                    <div class="col m-5">
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <input class="form-control" placeholder="Id" type="text" class="form-control"
+                                    name="costos_uid" id="costos_uid" [(ngModel)]="costo.costos_uid"
+                                    #costos_uid="ngModel" pattern="">
+                            </div>
+                            <br>
+                            <div class="col-12 mb-3">
+                                <input class="form-control" placeholder="Items" type="text" class="form-control"
+                                    name="costos_items" id="costos_items" [(ngModel)]="costo.costos_items"
+                                    #costos_items="ngModel" pattern="">
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <div class="col m-5">
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <input class="form-control" placeholder="Cantidad" type="text" class="form-control"
+                                    name="costos_cantidad" id="costos_cantidad"
+                                    [(ngModel)]="costo.costos_cantidad" #costos_cantidad="ngModel" pattern="">
+                            </div>
+                            <br>
+                            <div class="col-12 mb-3">
+                                <input class="form-control" placeholder="Precio unitario" type="text"
+                                    class="form-control" name="costos_precio_unitario" id="costos_precio_unitario"
+                                    [(ngModel)]="costo.costos_precio_unitario" #costos_precio_unitario="ngModel"
+                                    pattern="">
+                            </div>
+                            <br>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn waves-effect waves-light orange right">
+                        Guardar <i class="material-icons">add_circle</i>
+                    </button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>

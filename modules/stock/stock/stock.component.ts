@@ -35,7 +35,7 @@ export class StockComponent implements OnInit {
     this.stock = {}
     this.getStock()
   }
-  public addStock(s: GestionStock, isValid: boolean, form: NgForm) {
+  public addStock(s: GestionStock, form: NgForm) {
     //console.log("hasta aqui en el add")
 
     if (!this.isEdit) {

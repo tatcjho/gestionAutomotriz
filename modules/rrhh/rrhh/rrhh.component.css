@@ -1,0 +1,11 @@
+.subtitle {
+    font-size: 30px !important;
+    text-align: left;
+    color: #20214b;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .subtitle i {
+    color: #FFFF00;
+    visibility: hidden;
+    margin-left: 8px;
+  }
